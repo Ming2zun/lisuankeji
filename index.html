@@ -97,6 +97,23 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(0, 115, 245, 0.22), transparent 28rem),
+                radial-gradient(circle at 88% 8%, rgba(51, 204, 255, 0.16), transparent 24rem),
+                linear-gradient(180deg, #020617 0%, #07111f 42%, #020617 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(51, 204, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 204, 255, 0.045) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 78%);
+            z-index: -1;
         }
 
         .skip-link {
@@ -122,7 +139,7 @@
         }
         
         .text-gradient {
-            background: linear-gradient(90deg, #0073f5, #33ccff);
+            background: linear-gradient(90deg, #66abf9, #33ccff, #7dd3fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -137,16 +154,50 @@
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 28px 70px -30px rgba(51, 204, 255, 0.45);
         }
         
         .service-card {
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            background:
+                linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(2, 6, 23, 0.82)),
+                radial-gradient(circle at top right, rgba(0, 115, 245, 0.18), transparent 18rem);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .service-card::before,
+        .project-card::before,
+        .tech-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, transparent, rgba(51, 204, 255, 0.14), transparent);
+            transform: translateX(-120%);
+            transition: transform 0.7s ease;
         }
         
         .service-card:hover {
-            border-bottom: 3px solid #0073f5;
+            border-color: rgba(51, 204, 255, 0.44);
+            transform: translateY(-6px);
+        }
+
+        .service-card:hover::before,
+        .project-card:hover::before,
+        .tech-panel:hover::before {
+            transform: translateX(120%);
+        }
+
+        .project-card {
+            position: relative;
+            border: 1px solid rgba(148, 163, 184, 0.14);
+            background:
+                linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.9));
+            box-shadow: 0 18px 48px rgba(2, 6, 23, 0.34);
         }
         
         .nav-link {
@@ -171,6 +222,28 @@
         .active::after {
             width: 100%;
         }
+
+        nav {
+            border-bottom: 1px solid rgba(51, 204, 255, 0.16);
+        }
+
+        .brand-mark,
+        .icon-orbit {
+            position: relative;
+            box-shadow:
+                0 0 24px rgba(0, 115, 245, 0.45),
+                inset 0 0 16px rgba(51, 204, 255, 0.18);
+        }
+
+        .brand-mark::after,
+        .icon-orbit::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid rgba(51, 204, 255, 0.35);
+            border-radius: inherit;
+            opacity: 0.72;
+        }
         
         .hero-backdrop {
             position: absolute;
@@ -193,9 +266,22 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg, rgba(2, 6, 23, 0.6) 0%, rgba(2, 6, 23, 0.2) 35%, rgba(2, 6, 23, 0.2) 65%, rgba(2, 6, 23, 0.6) 100%),
-                linear-gradient(180deg, rgba(2, 6, 23, 0.28), rgba(2, 6, 23, 0.52));
+                linear-gradient(90deg, rgba(2, 6, 23, 0.82) 0%, rgba(2, 6, 23, 0.5) 44%, rgba(2, 6, 23, 0.68) 100%),
+                linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.74));
             z-index: 1;
+        }
+
+        .hero-backdrop::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(rgba(51, 204, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 204, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(120deg, transparent 0%, rgba(0, 115, 245, 0.12) 48%, transparent 56%);
+            background-size: 56px 56px, 56px 56px, 100% 100%;
+            opacity: 0.72;
         }
         
         /* 加载动画 */
@@ -259,9 +345,106 @@
             backdrop-filter: none;
         }
 
+        .tech-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 0.75rem;
+            border: 1px solid rgba(51, 204, 255, 0.28);
+            border-radius: 999px;
+            color: #b9e8ff;
+            background: rgba(2, 6, 23, 0.52);
+            box-shadow: 0 0 30px rgba(0, 115, 245, 0.18);
+        }
+
+        .tech-eyebrow::before {
+            content: '';
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            background: #33ccff;
+            box-shadow: 0 0 14px #33ccff;
+        }
+
+        .tech-button-primary,
+        .tech-button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 3rem;
+            border-radius: 0.5rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .tech-button-primary {
+            background: linear-gradient(135deg, #0073f5, #33ccff);
+            color: #fff;
+            box-shadow: 0 16px 42px rgba(0, 115, 245, 0.36);
+        }
+
+        .tech-button-secondary {
+            border: 1px solid rgba(51, 204, 255, 0.48);
+            background: rgba(2, 6, 23, 0.45);
+            color: #e0f2fe;
+        }
+
+        .tech-button-primary:hover,
+        .tech-button-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 52px rgba(51, 204, 255, 0.28);
+        }
+
+        .command-panel {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(51, 204, 255, 0.24);
+            border-radius: 0.75rem;
+            background:
+                linear-gradient(145deg, rgba(2, 6, 23, 0.82), rgba(15, 23, 42, 0.72)),
+                radial-gradient(circle at top right, rgba(51, 204, 255, 0.16), transparent 18rem);
+            box-shadow:
+                0 28px 90px rgba(2, 6, 23, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+        }
+
+        .command-panel::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -40%;
+            height: 40%;
+            background: linear-gradient(180deg, transparent, rgba(51, 204, 255, 0.16), transparent);
+            animation: scan-line 5.5s linear infinite;
+        }
+
+        @keyframes scan-line {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(360%); }
+        }
+
+        .terminal-row {
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            background: rgba(15, 23, 42, 0.58);
+        }
+
+        .metric-tile {
+            border: 1px solid rgba(51, 204, 255, 0.16);
+            background: rgba(2, 6, 23, 0.46);
+        }
+
+        .project-filter {
+            border: 1px solid rgba(51, 204, 255, 0.18);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        #hero-kicker,
         #hero-title,
         #hero-subtitle,
-        #hero-buttons {
+        #hero-buttons,
+        #hero-console {
             filter: drop-shadow(0 14px 32px rgba(2, 6, 23, 0.45));
         }
 
@@ -285,6 +468,51 @@
             background: rgba(15, 23, 42, 0.72);
             border: 1px solid rgba(148, 163, 184, 0.18);
             backdrop-filter: blur(16px);
+        }
+
+        .section-label {
+            color: #33ccff;
+            letter-spacing: 0.12em;
+        }
+
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(51, 204, 255, 0.2);
+            background: rgba(2, 6, 23, 0.35);
+            box-shadow: 0 24px 70px rgba(2, 6, 23, 0.38);
+        }
+
+        .image-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .stat-card,
+        .contact-panel {
+            border: 1px solid rgba(51, 204, 255, 0.16);
+            background:
+                linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.86));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        input,
+        textarea {
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            box-shadow: 0 0 0 3px rgba(51, 204, 255, 0.12), 0 0 28px rgba(0, 115, 245, 0.12);
+            background: rgba(2, 6, 23, 0.92);
+        }
+
+        #ai-chat {
+            border: 1px solid rgba(51, 204, 255, 0.22);
+            box-shadow: 0 20px 60px rgba(2, 6, 23, 0.52), 0 0 32px rgba(0, 115, 245, 0.14);
         }
         
         /* 响应式调整 */
@@ -361,6 +589,10 @@
             .scroll-indicator {
                 animation: none;
             }
+
+            .command-panel::after {
+                animation: none;
+            }
         }
     </style>
 </head>
@@ -372,7 +604,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center space-x-2" aria-label="立算科技首页">
-                    <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
+                    <div class="brand-mark w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
                         <i class="fas fa-robot text-white text-xl"></i>
                     </div>
                     <span class="text-xl font-bold text-white">立算科技</span>
@@ -402,7 +634,7 @@
             <div class="p-5">
                 <div class="flex justify-between items-center mb-8">
                     <a href="#home" class="flex items-center space-x-2" aria-label="立算科技首页">
-                        <div class="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
+                        <div class="brand-mark w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
                             <i class="fas fa-robot text-white text-sm"></i>
                         </div>
                         <span class="text-lg font-bold text-white">立算科技</span>
@@ -425,7 +657,7 @@
 
     <main id="main-content">
     <!-- 首页 Hero 区域 -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-28">
         <div class="hero-backdrop" aria-hidden="true">
             <video
                 class="hero-video"
@@ -446,36 +678,94 @@
         </div>
         
         <!-- Hero 内容 -->
-        <div class="container mx-auto px-4 z-10 text-center">
-            <div class="hero-panel max-w-5xl mx-auto rounded-3xl px-6 py-10 md:px-12 md:py-14">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 opacity-0" id="hero-title">
-                ROS自动驾驶 / 机器人算法 / 无人系统开发
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto opacity-0" id="hero-subtitle">
-                从算法验证到工程集成，支持导航、感知、规划、控制与仿真测试落地
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0" id="hero-buttons">
-                <a href="#projects" class="px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    查看案例
-                </a>
-                <a href="#contact" class="px-8 py-3 bg-transparent border border-primary-500 hover:bg-primary-500 hover:bg-opacity-10 text-white font-medium rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    联系合作
-                </a>
-            </div>
-            <div class="trust-strip mt-10 grid grid-cols-1 gap-4 rounded-lg px-4 py-4 text-left sm:grid-cols-3 md:px-6">
-                <div>
-                    <div class="text-primary-300 text-sm font-semibold">核心方向</div>
-                    <div class="text-gray-200">ROS/ROS2、导航规划、感知融合</div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+                <div class="hero-panel max-w-4xl text-left">
+                    <div class="tech-eyebrow mb-6 text-sm font-semibold opacity-0" id="hero-kicker">ROS / AUTONOMOUS SYSTEMS</div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-5 opacity-0 leading-tight" id="hero-title">
+                        ROS自动驾驶与机器人算法工程化
+                    </h1>
+                    <p class="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl opacity-0 leading-relaxed" id="hero-subtitle">
+                        从算法验证到系统集成，支持导航、感知、规划、控制与仿真测试落地。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 opacity-0" id="hero-buttons">
+                        <a href="#projects" class="tech-button-primary px-8 py-3 font-medium">
+                            <span>查看案例</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="tech-button-secondary px-8 py-3 font-medium">
+                            <span>联系合作</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                    <div class="trust-strip mt-10 grid grid-cols-1 gap-4 rounded-lg px-4 py-4 text-left sm:grid-cols-3 md:px-6">
+                        <div>
+                            <div class="text-primary-300 text-sm font-semibold">核心方向</div>
+                            <div class="text-gray-200">ROS/ROS2、导航规划、感知融合</div>
+                        </div>
+                        <div>
+                            <div class="text-primary-300 text-sm font-semibold">交付方式</div>
+                            <div class="text-gray-200">算法开发、系统集成、仿真验证</div>
+                        </div>
+                        <div>
+                            <div class="text-primary-300 text-sm font-semibold">服务场景</div>
+                            <div class="text-gray-200">AGV、无人车、移动机器人</div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="text-primary-300 text-sm font-semibold">交付方式</div>
-                    <div class="text-gray-200">算法开发、系统集成、仿真验证</div>
+
+                <div class="command-panel p-5 md:p-6 opacity-0" id="hero-console" aria-label="研发控制台状态概览">
+                    <div class="relative z-10">
+                        <div class="mb-5 flex items-center justify-between">
+                            <div>
+                                <div class="text-sm text-primary-300">SYSTEM PIPELINE</div>
+                                <div class="text-xl font-semibold text-white">Robot DevOps Console</div>
+                            </div>
+                            <div class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-sm text-emerald-300">ONLINE</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="metric-tile rounded-lg p-4">
+                                <div class="text-3xl font-bold text-primary-300">ROS2</div>
+                                <div class="text-sm text-gray-400">Humble / Foxy</div>
+                            </div>
+                            <div class="metric-tile rounded-lg p-4">
+                                <div class="text-3xl font-bold text-cyan-300">SLAM</div>
+                                <div class="text-sm text-gray-400">定位建图</div>
+                            </div>
+                            <div class="metric-tile rounded-lg p-4">
+                                <div class="text-3xl font-bold text-sky-300">Nav</div>
+                                <div class="text-sm text-gray-400">规划控制</div>
+                            </div>
+                            <div class="metric-tile rounded-lg p-4">
+                                <div class="text-3xl font-bold text-blue-300">Sim</div>
+                                <div class="text-sm text-gray-400">仿真验证</div>
+                            </div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="terminal-row rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">/navigation_stack</span>
+                                    <span class="text-emerald-300">READY</span>
+                                </div>
+                                <div class="mt-2 h-1.5 rounded-full bg-dark-300">
+                                    <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-primary-500 to-cyan-300"></div>
+                                </div>
+                            </div>
+                            <div class="terminal-row rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">/perception_fusion</span>
+                                    <span class="text-cyan-300">SYNC</span>
+                                </div>
+                                <div class="mt-2 h-1.5 rounded-full bg-dark-300">
+                                    <div class="h-full w-[72%] rounded-full bg-gradient-to-r from-primary-500 to-cyan-300"></div>
+                                </div>
+                            </div>
+                            <div class="terminal-row rounded-lg px-4 py-3 font-mono text-xs text-gray-300">
+                                <span class="text-primary-300">$</span> ros2 launch autonomy bringup.launch.py
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="text-primary-300 text-sm font-semibold">服务场景</div>
-                    <div class="text-gray-200">AGV、无人车、移动机器人</div>
-                </div>
-            </div>
             </div>
         </div>
         
@@ -489,6 +779,7 @@
     <section id="about" class="py-20 bg-dark-200">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
+                <div class="section-label text-sm font-semibold mb-3">ABOUT LISSUAN</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">关于我们</h2>
                 <div class="w-24 h-1 bg-primary-500 mx-auto"></div>
             </div>
@@ -503,25 +794,25 @@
                         我们的技术团队拥有丰富的ROS开发经验和工程调试积累，能够为客户提供从算法设计、仿真验证到系统集成的全流程服务。我们注重技术创新和工程落地，致力于将前沿机器人技术转化为可运行、可维护的实际应用。
                     </p>
                     <div class="flex flex-wrap gap-4 mt-8">
-                        <div class="bg-dark-100 px-6 py-4 rounded-lg">
+                        <div class="stat-card px-6 py-4 rounded-lg">
                             <div class="text-primary-400 text-3xl font-bold mb-2">5+</div>
                             <div class="text-gray-400">年ROS开发经验</div>
                         </div>
-                        <div class="bg-dark-100 px-6 py-4 rounded-lg">
+                        <div class="stat-card px-6 py-4 rounded-lg">
                             <div class="text-primary-400 text-3xl font-bold mb-2">20+</div>
                             <div class="text-gray-400">成功项目案例</div>
                         </div>
-                        <div class="bg-dark-100 px-6 py-4 rounded-lg">
+                        <div class="stat-card px-6 py-4 rounded-lg">
                             <div class="text-primary-400 text-3xl font-bold mb-2">15+</div>
                             <div class="text-gray-400">行业客户</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="reveal">
+                <div class="image-frame reveal rounded-lg p-2">
                     <img src="./assets/images/about-ros.jpg" loading="lazy" decoding="async"
                          alt="ROS机器人操作系统" 
-                         class="w-full h-auto rounded-lg shadow-2xl">
+                         class="w-full h-auto rounded-lg">
                 </div>
             </div>
         </div>
@@ -531,6 +822,7 @@
     <section id="services" class="py-20 bg-dark-300">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
+                <div class="section-label text-sm font-semibold mb-3">CAPABILITIES</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">服务内容</h2>
                 <div class="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
                 <p class="text-gray-300 max-w-3xl mx-auto">
@@ -541,7 +833,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 服务卡片 1 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">ROS/ROS2系统开发</h3>
@@ -566,7 +858,7 @@
                 
                 <!-- 服务卡片 2 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">导航与路径规划</h3>
@@ -591,7 +883,7 @@
                 
                 <!-- 服务卡片 3 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">机器视觉与感知</h3>
@@ -616,7 +908,7 @@
                 
                 <!-- 服务卡片 4 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-car-side"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">自动驾驶系统</h3>
@@ -641,7 +933,7 @@
                 
                 <!-- 服务卡片 5 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">控制系统开发</h3>
@@ -666,7 +958,7 @@
                 
                 <!-- 服务卡片 6 -->
                 <div class="service-card bg-dark-100 rounded-lg p-6 shadow-lg reveal">
-                    <div class="text-primary-500 text-4xl mb-4">
+                    <div class="icon-orbit w-14 h-14 rounded-lg bg-primary-500 flex items-center justify-center text-white text-2xl mb-5">
                         <i class="fas fa-vial"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">仿真与测试</h3>
@@ -696,6 +988,7 @@
     <section id="projects" class="py-20 bg-dark-200">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
+                <div class="section-label text-sm font-semibold mb-3">PROJECT MATRIX</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">项目案例</h2>
                 <div class="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
                 <p class="text-gray-300 max-w-3xl mx-auto">
@@ -877,6 +1170,7 @@
     <section id="tech" class="py-20 bg-dark-300">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
+                <div class="section-label text-sm font-semibold mb-3">TECH RADAR</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">技术方向</h2>
                 <div class="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
                 <p class="text-gray-300 max-w-3xl mx-auto">
@@ -921,18 +1215,18 @@
                     </div>
                 </div>
                 
-                <div class="reveal">
+                <div class="image-frame reveal rounded-lg p-2">
                     <img src="./assets/images/tech-ros.jpg" loading="lazy" decoding="async"
                          alt="ROS技术" 
-                         class="w-full h-auto rounded-lg shadow-2xl">
+                         class="w-full h-auto rounded-lg">
                 </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-                <div class="order-2 md:order-1 reveal">
+                <div class="image-frame order-2 md:order-1 reveal rounded-lg p-2">
                     <img src="./assets/images/tech-navigation.jpg" loading="lazy" decoding="async"
                          alt="导航与路径规划" 
-                         class="w-full h-auto rounded-lg shadow-2xl">
+                         class="w-full h-auto rounded-lg">
                 </div>
                 
                 <div class="order-1 md:order-2 reveal">
@@ -1009,10 +1303,10 @@
                     </div>
                 </div>
                 
-                <div class="reveal">
+                <div class="image-frame reveal rounded-lg p-2">
                     <img src="./assets/images/tech-vision.jpg" loading="lazy" decoding="async"
                          alt="机器视觉" 
-                         class="w-full h-auto rounded-lg shadow-2xl">
+                         class="w-full h-auto rounded-lg">
                 </div>
             </div>
         </div>
@@ -1022,6 +1316,7 @@
     <section id="contact" class="py-20 bg-dark-200">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
+                <div class="section-label text-sm font-semibold mb-3">CONTACT CHANNEL</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我们</h2>
                 <div class="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
                 <p class="text-gray-300 max-w-3xl mx-auto">
@@ -1031,7 +1326,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- 联系表单 -->
-                <div class="bg-dark-100 p-8 rounded-lg shadow-lg reveal">
+                <div class="contact-panel p-8 rounded-lg shadow-lg reveal">
                     <h3 class="text-2xl font-semibold mb-6">发送消息</h3>
                     <form id="contact-form" novalidate>
                         <div class="mb-6">
@@ -1059,7 +1354,7 @@
                 
                 <!-- 联系信息 -->
                 <div class="reveal">
-                    <div class="bg-dark-100 p-8 rounded-lg shadow-lg mb-8">
+                    <div class="contact-panel p-8 rounded-lg shadow-lg mb-8">
                         <h3 class="text-2xl font-semibold mb-6">联系方式</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
@@ -1093,7 +1388,7 @@
                     </div>
                     
                     <!-- 社交媒体 -->
-                    <div class="bg-dark-100 p-8 rounded-lg shadow-lg">
+                    <div class="contact-panel p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-semibold mb-6">关注我们</h3>
                         <div class="flex flex-wrap gap-4">
                             <a href="https://github.com/Ming2zun/lisuankeji" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="GitHub">
@@ -1290,13 +1585,18 @@
                     loader.style.display = 'none';
 
                     if (window.gsap && !prefersReducedMotion) {
-                        gsap.to('#hero-title', {opacity: 1, y: 0, duration: 0.9, delay: 0.05});
-                        gsap.to('#hero-subtitle', {opacity: 1, y: 0, duration: 0.9, delay: 0.15});
-                        gsap.to('#hero-buttons', {opacity: 1, y: 0, duration: 0.9, delay: 0.25});
+                        gsap.to('#hero-kicker', {opacity: 1, y: 0, duration: 0.8, delay: 0.02});
+                        gsap.to('#hero-title', {opacity: 1, y: 0, duration: 0.9, delay: 0.08});
+                        gsap.to('#hero-subtitle', {opacity: 1, y: 0, duration: 0.9, delay: 0.18});
+                        gsap.to('#hero-buttons', {opacity: 1, y: 0, duration: 0.9, delay: 0.28});
+                        gsap.to('#hero-console', {opacity: 1, y: 0, duration: 0.9, delay: 0.35});
                     } else {
-                        document.getElementById('hero-title').style.opacity = '1';
-                        document.getElementById('hero-subtitle').style.opacity = '1';
-                        document.getElementById('hero-buttons').style.opacity = '1';
+                        ['hero-kicker', 'hero-title', 'hero-subtitle', 'hero-buttons', 'hero-console'].forEach(id => {
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.style.opacity = '1';
+                            }
+                        });
                     }
                 }, 250);
             }, 300);
