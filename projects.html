@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="立算科技开源项目展示：Pure Tracking SLAM自动导航系统、Farmland Path Planning农田路径规划，以及ROS2导航、路径规划与农业机器人技术方向。">
+    <meta name="keywords" content="ROS2, SLAM, Pure Pursuit, 农田路径规划, 农业机器人, 路径规划, 开源项目">
+    <meta name="author" content="立算科技">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#020617">
+    <link rel="canonical" href="https://ming2zun.github.io/lisuankeji/projects.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="立算科技">
+    <meta property="og:title" content="立算科技 - 开源项目与技术方向">
+    <meta property="og:description" content="展示ROS2自动导航、SLAM、Pure Pursuit和农田路径规划开源项目。">
+    <meta property="og:url" content="https://ming2zun.github.io/lisuankeji/projects.html">
+    <meta property="og:image" content="https://ming2zun.github.io/lisuankeji/assets/images/project-pure-tracking-slam.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>立算科技 - 开源项目与技术方向</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(0, 115, 245, 0.22), transparent 28rem),
+                radial-gradient(circle at 88% 8%, rgba(51, 204, 255, 0.14), transparent 24rem),
+                linear-gradient(180deg, #020617 0%, #07111f 45%, #020617 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(51, 204, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 204, 255, 0.045) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 76%);
+            z-index: -1;
+        }
+
+        nav {
+            border-bottom: 1px solid rgba(51, 204, 255, 0.16);
+        }
+
+        .brand-mark,
+        .icon-orbit {
+            position: relative;
+            box-shadow:
+                0 0 24px rgba(0, 115, 245, 0.45),
+                inset 0 0 16px rgba(51, 204, 255, 0.18);
+        }
+
+        .brand-mark::after,
+        .icon-orbit::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid rgba(51, 204, 255, 0.35);
+            border-radius: inherit;
+            opacity: 0.72;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #0073f5;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #66abf9, #33ccff, #7dd3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-label {
+            color: #33ccff;
+            letter-spacing: 0.12em;
+        }
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 58vh;
+            background:
+                linear-gradient(90deg, rgba(2, 6, 23, 0.86), rgba(2, 6, 23, 0.58)),
+                url('./assets/images/project-pure-tracking-slam.svg') center/cover no-repeat;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(51, 204, 255, 0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 204, 255, 0.055) 1px, transparent 1px);
+            background-size: 56px 56px;
+            opacity: 0.75;
+        }
+
+        .tech-button-primary,
+        .tech-button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 3rem;
+            border-radius: 0.5rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .tech-button-primary {
+            background: linear-gradient(135deg, #0073f5, #33ccff);
+            color: #fff;
+            box-shadow: 0 16px 42px rgba(0, 115, 245, 0.36);
+        }
+
+        .tech-button-secondary {
+            border: 1px solid rgba(51, 204, 255, 0.48);
+            background: rgba(2, 6, 23, 0.45);
+            color: #e0f2fe;
+        }
+
+        .tech-button-primary:hover,
+        .tech-button-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 52px rgba(51, 204, 255, 0.25);
+        }
+
+        .project-card,
+        .tech-card,
+        .contact-panel {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            background:
+                linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.86));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 48px rgba(2, 6, 23, 0.34);
+        }
+
+        .project-card::before,
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(51, 204, 255, 0.14), transparent);
+            transform: translateX(-120%);
+            transition: transform 0.7s ease;
+        }
+
+        .project-card:hover::before,
+        .tech-card:hover::before {
+            transform: translateX(120%);
+        }
+
+        .project-card:hover,
+        .tech-card:hover {
+            border-color: rgba(51, 204, 255, 0.42);
+            transform: translateY(-5px);
+            box-shadow: 0 28px 70px -30px rgba(51, 204, 255, 0.45);
+        }
+
+        .project-card,
+        .tech-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input,
+        textarea {
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            box-shadow: 0 0 0 3px rgba(51, 204, 255, 0.12), 0 0 28px rgba(0, 115, 245, 0.12);
+            background: rgba(2, 6, 23, 0.92);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            transform: translateY(-200%);
+            z-index: 60;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background: #0073f5;
+            color: #fff;
+            transition: transform 0.2s ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 2px solid #33ccff;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body class="bg-[#020617] text-gray-100">
+    <a href="#main-content" class="skip-link">跳到主要内容</a>
+
+    <nav class="fixed top-0 left-0 w-full bg-[#0f172a]/95 backdrop-blur-sm z-50 shadow-lg" aria-label="主导航">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html#home" class="flex items-center space-x-2" aria-label="立算科技首页">
+                    <div class="brand-mark w-10 h-10 rounded-lg bg-[#0073f5] flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">立算科技</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link text-gray-300 hover:text-[#33ccff] font-medium">首页</a>
+                    <a href="index.html#about" class="nav-link text-gray-300 hover:text-[#33ccff] font-medium">关于我们</a>
+                    <a href="index.html#services" class="nav-link text-gray-300 hover:text-[#33ccff] font-medium">服务内容</a>
+                    <a href="#projects" class="nav-link active text-white hover:text-[#33ccff] font-medium">开源项目</a>
+                    <a href="#tech" class="nav-link text-gray-300 hover:text-[#33ccff] font-medium">技术方向</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-[#33ccff] font-medium">联系我们</a>
+                </div>
+
+                <button id="menu-toggle" class="md:hidden text-white" aria-label="打开菜单" aria-controls="mobile-menu" aria-expanded="false">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a] border-t border-cyan-400/10">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-3">
+                <a href="index.html#home" class="mobile-nav-link py-2 text-gray-300">首页</a>
+                <a href="index.html#about" class="mobile-nav-link py-2 text-gray-300">关于我们</a>
+                <a href="index.html#services" class="mobile-nav-link py-2 text-gray-300">服务内容</a>
+                <a href="#projects" class="mobile-nav-link py-2 text-white">开源项目</a>
+                <a href="#tech" class="mobile-nav-link py-2 text-gray-300">技术方向</a>
+                <a href="#contact" class="mobile-nav-link py-2 text-gray-300">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="page-hero flex items-center pt-24 pb-16">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl">
+                    <div class="section-label text-sm font-semibold mb-4">OPEN SOURCE WORKS</div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-5 leading-tight">开源项目与技术方向</h1>
+                    <p class="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-8">
+                        集中展示 Pure Tracking SLAM 自动导航系统与 Farmland Path Planning 农田路径规划，覆盖ROS2导航、SLAM、路径跟踪与农业机器人路线规划。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#projects" class="tech-button-primary px-8 py-3 font-medium">
+                            <span>查看项目</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="tech-button-secondary px-8 py-3 font-medium">
+                            <span>联系合作</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-[#0f172a]">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-14">
+                    <div class="section-label text-sm font-semibold mb-3">PROJECT MATRIX</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">开源项目</h2>
+                    <div class="w-24 h-1 bg-[#0073f5] mx-auto mb-6"></div>
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        两个项目分别覆盖移动机器人自动导航与农田覆盖路径规划，适合作为ROS2工程集成、算法验证和技术展示案例。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <article class="project-card rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="./assets/images/project-pure-tracking-slam.svg" alt="Pure Tracking SLAM自动导航系统" class="w-full h-full object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async">
+                            <div class="absolute top-4 right-4 bg-[#0073f5] text-white text-xs font-semibold px-3 py-1 rounded-full">ROS2导航</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3">Pure Tracking SLAM自动导航系统</h3>
+                            <p class="text-gray-400 mb-5">
+                                基于ROS2、Gazebo仿真、SLAM建图与Pure Pursuit纯追踪控制的自动导航系统，适合移动机器人导航验证。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">ROS2 Humble</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">SLAM</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">A*</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">Pure Pursuit</span>
+                            </div>
+                            <a href="https://github.com/Ming2zun/Pure-tracking-slam-automatic-navigation-system" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#33ccff] hover:text-cyan-200 font-medium">
+                                查看 GitHub 仓库 <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="./assets/images/project-farmland-path-planning.svg" alt="Farmland Path Planning农田路径规划" class="w-full h-full object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async">
+                            <div class="absolute top-4 right-4 bg-[#0073f5] text-white text-xs font-semibold px-3 py-1 rounded-full">农业机器人</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3">Farmland Path Planning</h3>
+                            <p class="text-gray-400 mb-5">
+                                面向农田作业场景的路径规划项目，支持区域覆盖、路径生成与ROS2话题发布，适合农业机器人路线规划。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">路径规划</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">区域覆盖</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">ROS2 Topic</span>
+                                <span class="text-xs bg-[#020617] text-gray-300 px-3 py-1 rounded-full">农业机器人</span>
+                            </div>
+                            <a href="https://github.com/Ming2zun/Farmland-Path-Planning" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#33ccff] hover:text-cyan-200 font-medium">
+                                查看 GitHub 仓库 <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="py-20 bg-[#020617]">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-14">
+                    <div class="section-label text-sm font-semibold mb-3">TECH RADAR</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">技术方向</h2>
+                    <div class="w-24 h-1 bg-[#0073f5] mx-auto mb-6"></div>
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        围绕机器人导航、路径规划、仿真验证与农业机器人应用，把算法能力落到可运行的ROS2工程。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="icon-orbit w-12 h-12 rounded-lg bg-[#0073f5] flex items-center justify-center text-white text-xl mb-5">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">SLAM与地图构建</h3>
+                        <p class="text-gray-400">围绕机器人环境建图、定位与地图数据管理，支撑导航系统前置能力。</p>
+                    </div>
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="icon-orbit w-12 h-12 rounded-lg bg-[#0073f5] flex items-center justify-center text-white text-xl mb-5">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">路径规划与跟踪</h3>
+                        <p class="text-gray-400">覆盖A*、覆盖式路径生成、Pure Pursuit等规划和控制链路。</p>
+                    </div>
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="icon-orbit w-12 h-12 rounded-lg bg-[#0073f5] flex items-center justify-center text-white text-xl mb-5">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">仿真与工程验证</h3>
+                        <p class="text-gray-400">基于Gazebo和ROS2话题通信，把算法在仿真环境中闭环验证。</p>
+                    </div>
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="icon-orbit w-12 h-12 rounded-lg bg-[#0073f5] flex items-center justify-center text-white text-xl mb-5">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">农业机器人路径</h3>
+                        <p class="text-gray-400">面向农田区域、覆盖路线、作业航线和无人农机导航接口设计。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-[#0f172a]">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-14">
+                    <div class="section-label text-sm font-semibold mb-3">CONTACT CHANNEL</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我们</h2>
+                    <div class="w-24 h-1 bg-[#0073f5] mx-auto mb-6"></div>
+                    <p class="text-gray-300 max-w-3xl mx-auto">如果您对ROS2导航、农田路径规划或机器人算法工程化有合作想法，欢迎联系。</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="contact-panel rounded-lg p-8">
+                        <h3 class="text-2xl font-semibold mb-6">发送消息</h3>
+                        <form id="contact-form" novalidate>
+                            <div class="mb-5">
+                                <label for="name" class="block text-gray-300 mb-2">姓名</label>
+                                <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-[#020617] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#33ccff]" placeholder="请输入您的姓名" required>
+                            </div>
+                            <div class="mb-5">
+                                <label for="email" class="block text-gray-300 mb-2">邮箱</label>
+                                <input type="email" id="email" name="email" autocomplete="email" class="w-full bg-[#020617] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#33ccff]" placeholder="请输入您的邮箱" required>
+                            </div>
+                            <div class="mb-5">
+                                <label for="subject" class="block text-gray-300 mb-2">主题</label>
+                                <input type="text" id="subject" name="subject" class="w-full bg-[#020617] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#33ccff]" placeholder="请输入消息主题" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-300 mb-2">消息</label>
+                                <textarea id="message" name="message" rows="5" class="w-full bg-[#020617] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#33ccff]" placeholder="请输入您的消息内容" required></textarea>
+                            </div>
+                            <button type="submit" class="tech-button-primary w-full px-6 py-3 font-medium">发送邮件</button>
+                            <p id="form-status" class="hidden mt-4 rounded-lg border border-cyan-400/30 bg-[#020617] px-4 py-3 text-sm text-gray-300" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="contact-panel rounded-lg p-8">
+                            <h3 class="text-2xl font-semibold mb-6">联系方式</h3>
+                            <div class="space-y-5">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-[#0073f5] flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-1">邮箱</h4>
+                                        <a href="mailto:909203969@qq.com" class="text-gray-400 hover:text-[#33ccff]">909203969@qq.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-[#0073f5] flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-1">电话</h4>
+                                        <a href="tel:15508027668" class="text-gray-400 hover:text-[#33ccff]">15508027668</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-[#0073f5] flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-1">地址</h4>
+                                        <p class="text-gray-400">四川省成都市龙泉驿区</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-panel rounded-lg p-8">
+                            <h3 class="text-2xl font-semibold mb-6">开源仓库</h3>
+                            <div class="flex flex-col gap-3">
+                                <a href="https://github.com/Ming2zun/Pure-tracking-slam-automatic-navigation-system" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-[#33ccff]">
+                                    <i class="fab fa-github mr-2"></i>Pure Tracking SLAM 自动导航系统
+                                </a>
+                                <a href="https://github.com/Ming2zun/Farmland-Path-Planning" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-[#33ccff]">
+                                    <i class="fab fa-github mr-2"></i>Farmland Path Planning
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#020617] py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-t border-gray-800 pt-8">
+                <p class="text-gray-400">© <span id="current-year">2026</span> 立算科技. 保留所有权利.</p>
+                <div class="flex gap-6">
+                    <a href="index.html#home" class="text-gray-400 hover:text-[#33ccff]">首页</a>
+                    <a href="#projects" class="text-gray-400 hover:text-[#33ccff]">开源项目</a>
+                    <a href="#contact" class="text-gray-400 hover:text-[#33ccff]">项目咨询</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-[#0073f5] text-white flex items-center justify-center shadow-lg z-30 opacity-0 invisible transition-all duration-300" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const siteConfig = {
+            contactEmail: '909203969@qq.com'
+        };
+
+        function escapeHtml(value) {
+            return value
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#39;');
+        }
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', e => {
+            e.preventDefault();
+
+            if (!contactForm.reportValidity()) {
+                return;
+            }
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const emailSubject = encodeURIComponent(`[官网咨询] ${subject}`);
+            const emailBody = encodeURIComponent(
+                `姓名：${name}\n邮箱：${email}\n\n需求内容：\n${message}`
+            );
+
+            formStatus.classList.remove('hidden');
+            formStatus.innerHTML = `已为您准备好邮件内容。如果未自动打开邮件客户端，请直接发送到 <a href="mailto:${escapeHtml(siteConfig.contactEmail)}" class="text-[#33ccff] hover:text-cyan-200">${escapeHtml(siteConfig.contactEmail)}</a>。`;
+            window.location.href = `mailto:${siteConfig.contactEmail}?subject=${emailSubject}&body=${emailBody}`;
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
