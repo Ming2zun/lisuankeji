@@ -443,8 +443,7 @@
         #hero-kicker,
         #hero-title,
         #hero-subtitle,
-        #hero-buttons,
-        #hero-console {
+        #hero-buttons {
             filter: drop-shadow(0 14px 32px rgba(2, 6, 23, 0.45));
         }
 
@@ -678,92 +677,37 @@
         </div>
         
         <!-- Hero 内容 -->
-        <div class="container mx-auto px-4 z-10">
-            <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-                <div class="hero-panel max-w-4xl text-left">
-                    <div class="tech-eyebrow mb-6 text-sm font-semibold opacity-0" id="hero-kicker">ROS / AUTONOMOUS SYSTEMS</div>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-5 opacity-0 leading-tight" id="hero-title">
-                        ROS自动驾驶与机器人算法工程化
-                    </h1>
-                    <p class="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl opacity-0 leading-relaxed" id="hero-subtitle">
-                        从算法验证到系统集成，支持导航、感知、规划、控制与仿真测试落地。
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 opacity-0" id="hero-buttons">
-                        <a href="#projects" class="tech-button-primary px-8 py-3 font-medium">
-                            <span>查看案例</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="tech-button-secondary px-8 py-3 font-medium">
-                            <span>联系合作</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </a>
-                    </div>
-                    <div class="trust-strip mt-10 grid grid-cols-1 gap-4 rounded-lg px-4 py-4 text-left sm:grid-cols-3 md:px-6">
-                        <div>
-                            <div class="text-primary-300 text-sm font-semibold">核心方向</div>
-                            <div class="text-gray-200">ROS/ROS2、导航规划、感知融合</div>
-                        </div>
-                        <div>
-                            <div class="text-primary-300 text-sm font-semibold">交付方式</div>
-                            <div class="text-gray-200">算法开发、系统集成、仿真验证</div>
-                        </div>
-                        <div>
-                            <div class="text-primary-300 text-sm font-semibold">服务场景</div>
-                            <div class="text-gray-200">AGV、无人车、移动机器人</div>
-                        </div>
-                    </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <div class="hero-panel max-w-5xl mx-auto px-6 py-10 md:px-12 md:py-14">
+                <div class="tech-eyebrow mb-6 text-sm font-semibold opacity-0" id="hero-kicker">ROS / AUTONOMOUS SYSTEMS</div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-5 opacity-0 leading-tight" id="hero-title">
+                    ROS自动驾驶 / 机器人算法 / 无人系统开发
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto opacity-0 leading-relaxed" id="hero-subtitle">
+                    导航、感知、规划、控制与仿真测试，从算法验证到系统集成落地。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0" id="hero-buttons">
+                    <a href="#projects" class="tech-button-primary px-8 py-3 font-medium">
+                        <span>查看案例</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="tech-button-secondary px-8 py-3 font-medium">
+                        <span>联系合作</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
                 </div>
-
-                <div class="command-panel p-5 md:p-6 opacity-0" id="hero-console" aria-label="研发控制台状态概览">
-                    <div class="relative z-10">
-                        <div class="mb-5 flex items-center justify-between">
-                            <div>
-                                <div class="text-sm text-primary-300">SYSTEM PIPELINE</div>
-                                <div class="text-xl font-semibold text-white">Robot DevOps Console</div>
-                            </div>
-                            <div class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-sm text-emerald-300">ONLINE</div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 mb-5">
-                            <div class="metric-tile rounded-lg p-4">
-                                <div class="text-3xl font-bold text-primary-300">ROS2</div>
-                                <div class="text-sm text-gray-400">Humble / Foxy</div>
-                            </div>
-                            <div class="metric-tile rounded-lg p-4">
-                                <div class="text-3xl font-bold text-cyan-300">SLAM</div>
-                                <div class="text-sm text-gray-400">定位建图</div>
-                            </div>
-                            <div class="metric-tile rounded-lg p-4">
-                                <div class="text-3xl font-bold text-sky-300">Nav</div>
-                                <div class="text-sm text-gray-400">规划控制</div>
-                            </div>
-                            <div class="metric-tile rounded-lg p-4">
-                                <div class="text-3xl font-bold text-blue-300">Sim</div>
-                                <div class="text-sm text-gray-400">仿真验证</div>
-                            </div>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div class="terminal-row rounded-lg px-4 py-3">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-gray-300">/navigation_stack</span>
-                                    <span class="text-emerald-300">READY</span>
-                                </div>
-                                <div class="mt-2 h-1.5 rounded-full bg-dark-300">
-                                    <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-primary-500 to-cyan-300"></div>
-                                </div>
-                            </div>
-                            <div class="terminal-row rounded-lg px-4 py-3">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-gray-300">/perception_fusion</span>
-                                    <span class="text-cyan-300">SYNC</span>
-                                </div>
-                                <div class="mt-2 h-1.5 rounded-full bg-dark-300">
-                                    <div class="h-full w-[72%] rounded-full bg-gradient-to-r from-primary-500 to-cyan-300"></div>
-                                </div>
-                            </div>
-                            <div class="terminal-row rounded-lg px-4 py-3 font-mono text-xs text-gray-300">
-                                <span class="text-primary-300">$</span> ros2 launch autonomy bringup.launch.py
-                            </div>
-                        </div>
+                <div class="trust-strip mt-10 grid grid-cols-1 gap-4 rounded-lg px-4 py-4 text-left sm:grid-cols-3 md:px-6">
+                    <div>
+                        <div class="text-primary-300 text-sm font-semibold">核心方向</div>
+                        <div class="text-gray-200">ROS/ROS2、导航规划、感知融合</div>
+                    </div>
+                    <div>
+                        <div class="text-primary-300 text-sm font-semibold">交付方式</div>
+                        <div class="text-gray-200">算法开发、系统集成、仿真验证</div>
+                    </div>
+                    <div>
+                        <div class="text-primary-300 text-sm font-semibold">服务场景</div>
+                        <div class="text-gray-200">AGV、无人车、农业机器人</div>
                     </div>
                 </div>
             </div>
@@ -1003,6 +947,7 @@
                 <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="navigation" aria-pressed="false">导航规划</button>
                 <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="autodrive" aria-pressed="false">自动驾驶</button>
                 <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="perception" aria-pressed="false">感知系统</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="opensource" aria-pressed="false">开源项目</button>
             </div>
             
             <!-- 案例展示 -->
@@ -1158,6 +1103,58 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动驾驶</span>
                         </div>
                         <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="6">
+                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 开源项目1 -->
+                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="ros navigation opensource">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="./assets/images/project-ros.jpg" loading="lazy" decoding="async"
+                             alt="Pure Tracking SLAM自动导航系统"
+                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            开源项目
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pure Tracking SLAM自动导航系统</h3>
+                        <p class="text-gray-400 mb-4">
+                            基于ROS2、Gazebo仿真、SLAM建图与Pure Pursuit纯追踪控制的自动导航系统，适合移动机器人导航验证。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2</span>
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">SLAM</span>
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">Pure Pursuit</span>
+                        </div>
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="7">
+                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 开源项目2 -->
+                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="navigation opensource">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="./assets/images/project-path-planning.jpg" loading="lazy" decoding="async"
+                             alt="Farmland Path Planning农田路径规划"
+                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            开源项目
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Farmland Path Planning</h3>
+                        <p class="text-gray-400 mb-4">
+                            面向农田作业场景的路径规划项目，支持区域覆盖、路径生成与ROS2话题发布，适合农业机器人路线规划。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">路径规划</span>
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">农业机器人</span>
+                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2</span>
+                        </div>
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="8">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -1589,9 +1586,8 @@
                         gsap.to('#hero-title', {opacity: 1, y: 0, duration: 0.9, delay: 0.08});
                         gsap.to('#hero-subtitle', {opacity: 1, y: 0, duration: 0.9, delay: 0.18});
                         gsap.to('#hero-buttons', {opacity: 1, y: 0, duration: 0.9, delay: 0.28});
-                        gsap.to('#hero-console', {opacity: 1, y: 0, duration: 0.9, delay: 0.35});
                     } else {
-                        ['hero-kicker', 'hero-title', 'hero-subtitle', 'hero-buttons', 'hero-console'].forEach(id => {
+                        ['hero-kicker', 'hero-title', 'hero-subtitle', 'hero-buttons'].forEach(id => {
                             const element = document.getElementById(id);
                             if (element) {
                                 element.style.opacity = '1';
@@ -2152,6 +2148,86 @@
                                     测试平台成功应用于自动驾驶算法开发，加速了开发迭代，降低了硬件成本和测试风险，提高了算法的可靠性和安全性，获得了客户的好评。
                                 </p>
                             </div>
+                        </div>
+                    `
+                },
+                7: {
+                    title: 'Pure Tracking SLAM自动导航系统',
+                    content: `
+                        <div class="space-y-6">
+                            <img src="./assets/images/project-ros.jpg" alt="Pure Tracking SLAM自动导航系统" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">项目概述</h4>
+                                <p class="text-gray-300">
+                                    这是一个面向移动机器人导航验证的开源项目，结合ROS2、Gazebo仿真、SLAM建图与Pure Pursuit纯追踪控制，用于构建从环境建图到路径跟踪的完整导航流程。
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">技术栈</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">Gazebo</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">SLAM</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">Pure Pursuit</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动导航</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">项目亮点</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>支持Gazebo仿真环境中的移动机器人导航验证</li>
+                                    <li>结合SLAM建图与导航流程，便于学习和二次开发</li>
+                                    <li>使用Pure Pursuit纯追踪算法进行路径跟踪控制</li>
+                                    <li>适合作为ROS2导航、控制、仿真集成的开源参考项目</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://github.com/Ming2zun/Pure-tracking-slam-automatic-navigation-system" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium">
+                                查看 GitHub 仓库 <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    `
+                },
+                8: {
+                    title: 'Farmland Path Planning',
+                    content: `
+                        <div class="space-y-6">
+                            <img src="./assets/images/project-path-planning.jpg" alt="Farmland Path Planning农田路径规划" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">项目概述</h4>
+                                <p class="text-gray-300">
+                                    面向农田作业场景的路径规划开源项目，围绕农田区域覆盖、路径生成与ROS2话题发布展开，适合农业机器人、无人农机和覆盖式作业路径规划验证。
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">技术栈</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">路径规划</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">区域覆盖</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">农业机器人</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2 Topic</span>
+                                    <span class="text-sm bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动化作业</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">项目亮点</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>面向农田场景生成可执行的覆盖式作业路径</li>
+                                    <li>适用于农业机器人路线规划和无人农机作业验证</li>
+                                    <li>支持路径数据与ROS2系统对接，便于后续导航集成</li>
+                                    <li>可作为农田路径规划算法展示和二次开发基础</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://github.com/Ming2zun/Farmland-Path-Planning" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium">
+                                查看 GitHub 仓库 <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
                         </div>
                     `
                 }
