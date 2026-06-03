@@ -943,175 +943,16 @@
             <!-- 案例筛选 -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button type="button" class="project-filter px-6 py-2 rounded-full bg-primary-500 text-white" data-filter="all" aria-pressed="true">全部</button>
-                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="ros" aria-pressed="false">ROS开发</button>
-                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="navigation" aria-pressed="false">导航规划</button>
-                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="autodrive" aria-pressed="false">自动驾驶</button>
-                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="perception" aria-pressed="false">感知系统</button>
-                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="opensource" aria-pressed="false">开源项目</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="ros" aria-pressed="false">ROS导航</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="navigation" aria-pressed="false">路径规划</button>
             </div>
             
             <!-- 案例展示 -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 案例1 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="ros navigation">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-agv.jpg" loading="lazy" decoding="async"
-                             alt="ROS导航系统" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            ROS导航
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">AGV物流机器人导航系统</h3>
-                        <p class="text-gray-400 mb-4">
-                            基于ROS的AGV物流机器人导航系统开发，实现了地图构建、自主导航、路径规划等功能，应用于工业物流场景。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS Noetic</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">导航栈</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">SLAM</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="1">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 案例2 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="autodrive">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-autodrive.jpg" loading="lazy" decoding="async"
-                             alt="自动驾驶系统" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            自动驾驶
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">无人车自动驾驶系统</h3>
-                        <p class="text-gray-400 mb-4">
-                            基于ROS2的无人车自动驾驶系统开发，包括环境感知、决策规划、控制执行等模块，支持结构化道路自动驾驶。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2 Humble</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动驾驶</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">传感器融合</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="2">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 案例3 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="perception">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-perception.jpg" loading="lazy" decoding="async"
-                             alt="视觉感知系统" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            视觉感知
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">机器人视觉感知系统</h3>
-                        <p class="text-gray-400 mb-4">
-                            基于深度学习的机器人视觉感知系统开发，实现了目标检测、识别、跟踪等功能，应用于服务机器人领域。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">TensorFlow</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">YOLO</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">OpenCV</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="3">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 案例4 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="ros">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-ros.jpg" loading="lazy" decoding="async"
-                             alt="ROS系统开发" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            ROS开发
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">机器人操作系统定制开发</h3>
-                        <p class="text-gray-400 mb-4">
-                            为客户定制开发基于ROS的机器人操作系统，包括硬件驱动、通信架构、功能模块等，满足特定应用需求。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS Melodic</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自定义驱动</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">系统集成</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="4">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 案例5 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="navigation">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-path-planning.jpg" loading="lazy" decoding="async"
-                             alt="路径规划算法" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            路径规划
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">复杂环境路径规划算法</h3>
-                        <p class="text-gray-400 mb-4">
-                            开发了适用于复杂环境的机器人路径规划算法，包括RRT*、A*等改进算法，提高了路径规划的效率和安全性。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">RRT*</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">A*</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">动态规划</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="5">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 案例6 -->
-                <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="autodrive perception">
-                    <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-test-platform.jpg" loading="lazy" decoding="async"
-                             alt="自动驾驶测试" 
-                             class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                            自动驾驶测试
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">自动驾驶测试平台</h3>
-                        <p class="text-gray-400 mb-4">
-                            搭建了基于ROS2的自动驾驶测试平台，集成了传感器模拟、环境仿真、算法验证等功能，加速自动驾驶算法开发与测试。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">ROS2 Galactic</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">Gazebo</span>
-                            <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动驾驶</span>
-                        </div>
-                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="6">
-                            查看详情 <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
                 <!-- 开源项目1 -->
                 <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="ros navigation opensource">
                     <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-ros.jpg" loading="lazy" decoding="async"
+                        <img src="./assets/images/project-pure-tracking-slam.svg" loading="lazy" decoding="async"
                              alt="Pure Tracking SLAM自动导航系统"
                              class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
                         <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -1137,7 +978,7 @@
                 <!-- 开源项目2 -->
                 <div class="project-card card-hover bg-dark-100 rounded-lg overflow-hidden shadow-lg reveal" data-category="navigation opensource">
                     <div class="relative overflow-hidden h-56">
-                        <img src="./assets/images/project-path-planning.jpg" loading="lazy" decoding="async"
+                        <img src="./assets/images/project-farmland-path-planning.svg" loading="lazy" decoding="async"
                              alt="Farmland Path Planning农田路径规划"
                              class="w-full h-full object-cover transition duration-500 transform hover:scale-110">
                         <div class="absolute top-4 right-4 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -2155,7 +1996,7 @@
                     title: 'Pure Tracking SLAM自动导航系统',
                     content: `
                         <div class="space-y-6">
-                            <img src="./assets/images/project-ros.jpg" alt="Pure Tracking SLAM自动导航系统" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+                            <img src="./assets/images/project-pure-tracking-slam.svg" alt="Pure Tracking SLAM自动导航系统" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
 
                             <div>
                                 <h4 class="text-xl font-semibold mb-2">项目概述</h4>
@@ -2195,7 +2036,7 @@
                     title: 'Farmland Path Planning',
                     content: `
                         <div class="space-y-6">
-                            <img src="./assets/images/project-path-planning.jpg" alt="Farmland Path Planning农田路径规划" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+                            <img src="./assets/images/project-farmland-path-planning.svg" alt="Farmland Path Planning农田路径规划" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
 
                             <div>
                                 <h4 class="text-xl font-semibold mb-2">项目概述</h4>

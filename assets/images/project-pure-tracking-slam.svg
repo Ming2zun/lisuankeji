@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Pure Tracking SLAM automatic navigation system cover</title>
+  <desc id="desc">A robotics navigation map with SLAM occupancy grid, planned route, pure pursuit tracking arc, and simulated robot pose.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#03111f"/>
+      <stop offset="0.55" stop-color="#071a2d"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0073f5"/>
+      <stop offset="1" stop-color="#33ccff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#2dd4ff" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect width="1200" height="720" fill="url(#grid)"/>
+  <g opacity="0.9">
+    <rect x="76" y="84" width="836" height="520" rx="18" fill="#061826" stroke="#33ccff" stroke-opacity="0.24"/>
+    <path d="M104 141h146v62h-68v92h128v92h-94v79h166v70H104z" fill="#94a3b8" opacity="0.18"/>
+    <path d="M706 126h154v120h-92v92h72v152H684v-72h54V296h-92V188h60z" fill="#94a3b8" opacity="0.16"/>
+    <path d="M418 96h118v80h-74v74h102v80H438v88h82v76H344v-96h58V238h-76V138h92z" fill="#94a3b8" opacity="0.14"/>
+    <path d="M128 498c132-118 218-172 344-154 86 12 116 68 190 54 56-11 98-60 158-154" fill="none" stroke="#0f172a" stroke-width="50" stroke-linecap="round" opacity="0.92"/>
+    <path d="M128 498c132-118 218-172 344-154 86 12 116 68 190 54 56-11 98-60 158-154" fill="none" stroke="url(#path)" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M672 376c-22 42-15 82 34 116" fill="none" stroke="#facc15" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 10"/>
+    <circle cx="672" cy="376" r="22" fill="#33ccff" filter="url(#glow)"/>
+    <path d="M694 368l52-22-18 55z" fill="#e0f2fe"/>
+    <circle cx="818" cy="244" r="9" fill="#22c55e"/>
+    <circle cx="128" cy="498" r="9" fill="#facc15"/>
+  </g>
+  <g transform="translate(944 112)">
+    <rect width="252" height="440" rx="18" fill="#020617" fill-opacity="0.74" stroke="#33ccff" stroke-opacity="0.25"/>
+    <text x="24" y="48" fill="#e0f2fe" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">ROS2 NAV</text>
+    <text x="24" y="82" fill="#7dd3fc" font-family="Inter, Arial, sans-serif" font-size="14">SLAM / A* / Pure Pursuit</text>
+    <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#cbd5e1">
+      <text x="24" y="142">/map_server</text>
+      <text x="24" y="196">/global_path</text>
+      <text x="24" y="250">/pure_tracking</text>
+      <text x="24" y="304">/cmd_vel</text>
+    </g>
+    <g fill="#33ccff">
+      <rect x="24" y="156" width="188" height="8" rx="4" opacity="0.75"/>
+      <rect x="24" y="210" width="148" height="8" rx="4" opacity="0.75"/>
+      <rect x="24" y="264" width="174" height="8" rx="4" opacity="0.75"/>
+      <rect x="24" y="318" width="126" height="8" rx="4" opacity="0.75"/>
+    </g>
+    <text x="24" y="388" fill="#22c55e" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">TRACKING OK</text>
+  </g>
+</svg>
