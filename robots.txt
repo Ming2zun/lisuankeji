@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ming2zun.github.io/lisuankeji/sitemap.xml

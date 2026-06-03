@@ -5,14 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="立算科技提供 ROS/ROS2 自动驾驶、机器人导航、感知、控制与无人系统开发服务，面向机器人、AGV 与无人车项目提供算法与系统集成支持。">
     <meta name="keywords" content="ROS, ROS2, 自动驾驶, 机器人, 导航规划, 感知算法, 无人系统, AGV">
+    <meta name="author" content="立算科技">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#020617">
+    <link rel="canonical" href="https://ming2zun.github.io/lisuankeji/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="立算科技">
+    <meta property="og:title" content="立算科技 - ROS自动驾驶/机器人算法/无人系统开发">
+    <meta property="og:description" content="专注 ROS/ROS2、机器人导航、自动驾驶、感知算法与无人系统工程落地。">
+    <meta property="og:url" content="https://ming2zun.github.io/lisuankeji/">
+    <meta property="og:image" content="https://ming2zun.github.io/lisuankeji/assets/images/about-ros.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <title>立算科技 - ROS自动驾驶/机器人算法/无人系统开发</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "立算科技",
+            "url": "https://ming2zun.github.io/lisuankeji/",
+            "description": "ROS/ROS2 自动驾驶、机器人导航、感知、控制与无人系统开发服务。",
+            "areaServed": "中国",
+            "email": "909203969@qq.com",
+            "telephone": "+86-15508027668",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "成都市",
+                "addressRegion": "四川省",
+                "addressCountry": "CN"
+            },
+            "sameAs": [
+                "https://github.com/Ming2zun/lisuankeji"
+            ],
+            "knowsAbout": ["ROS", "ROS2", "机器人导航", "自动驾驶", "路径规划", "机器视觉", "无人系统"]
+        }
+    </script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Three.js -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- GSAP 动画库 -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <!-- ScrollReveal -->
@@ -244,6 +280,12 @@
         .status-message.show {
             display: block;
         }
+
+        .trust-strip {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            backdrop-filter: blur(16px);
+        }
         
         /* 响应式调整 */
         @media (max-width: 768px) {
@@ -329,7 +371,7 @@
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
+                <a href="#home" class="flex items-center space-x-2" aria-label="立算科技首页">
                     <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
                         <i class="fas fa-robot text-white text-xl"></i>
                     </div>
@@ -359,7 +401,7 @@
         <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-3/4 bg-dark-200 shadow-lg z-50 md:hidden">
             <div class="p-5">
                 <div class="flex justify-between items-center mb-8">
-                    <a href="#" class="flex items-center space-x-2">
+                    <a href="#home" class="flex items-center space-x-2" aria-label="立算科技首页">
                         <div class="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
                             <i class="fas fa-robot text-white text-sm"></i>
                         </div>
@@ -410,7 +452,7 @@
                 ROS自动驾驶 / 机器人算法 / 无人系统开发
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto opacity-0" id="hero-subtitle">
-                导航、感知、规划、控制、系统集成
+                从算法验证到工程集成，支持导航、感知、规划、控制与仿真测试落地
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0" id="hero-buttons">
                 <a href="#projects" class="px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
@@ -419,6 +461,20 @@
                 <a href="#contact" class="px-8 py-3 bg-transparent border border-primary-500 hover:bg-primary-500 hover:bg-opacity-10 text-white font-medium rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
                     联系合作
                 </a>
+            </div>
+            <div class="trust-strip mt-10 grid grid-cols-1 gap-4 rounded-lg px-4 py-4 text-left sm:grid-cols-3 md:px-6">
+                <div>
+                    <div class="text-primary-300 text-sm font-semibold">核心方向</div>
+                    <div class="text-gray-200">ROS/ROS2、导航规划、感知融合</div>
+                </div>
+                <div>
+                    <div class="text-primary-300 text-sm font-semibold">交付方式</div>
+                    <div class="text-gray-200">算法开发、系统集成、仿真验证</div>
+                </div>
+                <div>
+                    <div class="text-primary-300 text-sm font-semibold">服务场景</div>
+                    <div class="text-gray-200">AGV、无人车、移动机器人</div>
+                </div>
             </div>
             </div>
         </div>
@@ -441,10 +497,10 @@
                 <div class="reveal">
                     <h3 class="text-2xl font-semibold mb-4 text-gradient">立算科技</h3>
                     <p class="text-gray-300 mb-6">
-                        立算科技是一家专注于ROS/ROS2自动驾驶、机器人导航控制、无人系统算法开发与技术服务的个人工作室。我们致力于为客户提供高质量的机器人操作系统解决方案，帮助企业和团队实现自动化和智能化转型。
+                        立算科技专注于ROS/ROS2自动驾驶、机器人导航控制、无人系统算法开发与技术服务。我们致力于为客户提供高质量的机器人操作系统解决方案，帮助企业和团队实现自动化和智能化转型。
                     </p>
                     <p class="text-gray-300 mb-6">
-                        我们的核心团队拥有丰富的ROS开发经验和深厚的技术积累，能够为客户提供从算法设计到系统集成的全流程服务。我们注重技术创新和工程落地，致力于将前沿的机器人技术转化为实际应用。
+                        我们的技术团队拥有丰富的ROS开发经验和工程调试积累，能够为客户提供从算法设计、仿真验证到系统集成的全流程服务。我们注重技术创新和工程落地，致力于将前沿机器人技术转化为可运行、可维护的实际应用。
                     </p>
                     <div class="flex flex-wrap gap-4 mt-8">
                         <div class="bg-dark-100 px-6 py-4 rounded-lg">
@@ -649,11 +705,11 @@
             
             <!-- 案例筛选 -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="project-filter px-6 py-2 rounded-full bg-primary-500 text-white" data-filter="all">全部</button>
-                <button class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="ros">ROS开发</button>
-                <button class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="navigation">导航规划</button>
-                <button class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="autodrive">自动驾驶</button>
-                <button class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="perception">感知系统</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-primary-500 text-white" data-filter="all" aria-pressed="true">全部</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="ros" aria-pressed="false">ROS开发</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="navigation" aria-pressed="false">导航规划</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="autodrive" aria-pressed="false">自动驾驶</button>
+                <button type="button" class="project-filter px-6 py-2 rounded-full bg-dark-100 text-gray-300 hover:bg-primary-500 hover:text-white transition duration-300" data-filter="perception" aria-pressed="false">感知系统</button>
             </div>
             
             <!-- 案例展示 -->
@@ -678,7 +734,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">导航栈</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">SLAM</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="1">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="1">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -704,7 +760,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动驾驶</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">传感器融合</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="2">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="2">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -730,7 +786,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">YOLO</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">OpenCV</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="3">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="3">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -756,7 +812,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自定义驱动</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">系统集成</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="4">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="4">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -782,7 +838,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">A*</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">动态规划</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="5">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="5">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -808,7 +864,7 @@
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">Gazebo</span>
                             <span class="text-xs bg-dark-300 text-gray-300 px-3 py-1 rounded-full">自动驾驶</span>
                         </div>
-                        <button class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="6">
+                        <button type="button" class="view-project text-primary-400 hover:text-primary-300 font-medium flex items-center" data-id="6">
                             查看详情 <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
@@ -1012,7 +1068,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">邮箱</h4>
-                                    <p class="text-gray-400">909203969@qq.com</p>
+                                    <a href="mailto:909203969@qq.com" class="text-gray-400 hover:text-primary-400">909203969@qq.com</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1021,7 +1077,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">电话</h4>
-                                    <p class="text-gray-400">15508027668</p>
+                                    <a href="tel:15508027668" class="text-gray-400 hover:text-primary-400">15508027668</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1039,18 +1095,15 @@
                     <!-- 社交媒体 -->
                     <div class="bg-dark-100 p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-semibold mb-6">关注我们</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="GitHub">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://github.com/Ming2zun/lisuankeji" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="GitHub">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="微信">
-                                <i class="fab fa-weixin text-xl"></i>
+                            <a href="mailto:909203969@qq.com" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="邮件联系">
+                                <i class="fas fa-envelope text-xl"></i>
                             </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="微博">
-                                <i class="fab fa-weibo text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin text-xl"></i>
+                            <a href="tel:15508027668" class="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition duration-300" aria-label="电话联系">
+                                <i class="fas fa-phone-alt text-xl"></i>
                             </a>
                         </div>
                     </div>
@@ -1066,27 +1119,24 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <!-- 公司信息 -->
                 <div>
-                    <a href="#" class="flex items-center space-x-2 mb-4">
+                    <a href="#home" class="flex items-center space-x-2 mb-4" aria-label="立算科技首页">
                         <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
                             <i class="fas fa-robot text-white text-xl"></i>
                         </div>
                         <span class="text-xl font-bold text-white">立算科技</span>
                     </a>
                     <p class="text-gray-400 mb-4">
-                        专注于ROS/ROS2自动驾驶、机器人导航控制、无人系统算法开发与技术服务的个人工作室。
+                        专注于ROS/ROS2自动驾驶、机器人导航控制、无人系统算法开发与技术服务。
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary-400">
+                        <a href="https://github.com/Ming2zun/lisuankeji" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-400" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-primary-400">
-                            <i class="fab fa-weixin"></i>
+                        <a href="mailto:909203969@qq.com" class="text-gray-400 hover:text-primary-400" aria-label="邮件联系">
+                            <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-primary-400">
-                            <i class="fab fa-weibo"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary-400">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="tel:15508027668" class="text-gray-400 hover:text-primary-400" aria-label="电话联系">
+                            <i class="fas fa-phone-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1139,10 +1189,10 @@
             
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 立算科技. 保留所有权利.</p>
+                    <p class="text-gray-400 mb-4 md:mb-0">© <span id="current-year">2026</span> 立算科技. 保留所有权利.</p>
                     <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-primary-400">隐私政策</a>
-                        <a href="#" class="text-gray-400 hover:text-primary-400">服务条款</a>
+                        <a href="#contact" class="text-gray-400 hover:text-primary-400">项目咨询</a>
+                        <a href="https://github.com/Ming2zun/lisuankeji" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-400">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1150,7 +1200,7 @@
     </footer>
 
     <!-- 项目详情模态框 -->
-    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="bg-dark-100 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
@@ -1223,9 +1273,18 @@
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
             const loader = document.getElementById('loader');
+            const currentYear = document.getElementById('current-year');
+
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
 
             // 隐藏加载动画
             window.setTimeout(function() {
+                if (!loader) {
+                    return;
+                }
+
                 loader.style.opacity = '0';
                 window.setTimeout(function() {
                     loader.style.display = 'none';
@@ -1500,10 +1559,12 @@
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-primary-500', 'text-white');
                         btn.classList.add('bg-dark-100', 'text-gray-300');
+                        btn.setAttribute('aria-pressed', 'false');
                     });
                     
                     this.classList.remove('bg-dark-100', 'text-gray-300');
                     this.classList.add('bg-primary-500', 'text-white');
+                    this.setAttribute('aria-pressed', 'true');
                     
                     // 筛选项目
                     const filter = this.getAttribute('data-filter');
@@ -1526,6 +1587,7 @@
             const modalTitle = document.getElementById('modal-title');
             const modalContent = document.getElementById('modal-content');
             const viewButtons = document.querySelectorAll('.view-project');
+            let lastFocusedElement = null;
             
             // 项目详情数据
             const projectDetails = {
@@ -1800,26 +1862,45 @@
                 button.addEventListener('click', function() {
                     const projectId = this.getAttribute('data-id');
                     const project = projectDetails[projectId];
+
+                    if (!project) {
+                        return;
+                    }
                     
+                    lastFocusedElement = this;
                     modalTitle.textContent = project.title;
                     modalContent.innerHTML = project.content;
                     
                     modal.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
+                    closeModal.focus();
                 });
             });
+
+            function closeProjectModal() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
+            }
             
             // 关闭模态框
             closeModal.addEventListener('click', function() {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                closeProjectModal();
             });
             
             // 点击模态框外部关闭
             modal.addEventListener('click', function(e) {
                 if(e.target === modal) {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
+                    closeProjectModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeProjectModal();
                 }
             });
         }
